@@ -11,6 +11,7 @@ Validate data against [openapi v3 spec](https://github.com/OAI/OpenAPI-Specifica
 5. Supports allOf, anyOf
 6. Supports nullable
 7. Resolves local references (components)
+8. Supports additionalProperties
 
 Unlike Dredd it does not require examples and does not check that data matches examples
 
