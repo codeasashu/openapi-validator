@@ -1,0 +1,60 @@
+info:
+  title: example api
+  version: '1'
+  contact:
+    name: me
+    url: some-url.com
+    email: me@some.com
+tags:
+  -
+    name: someTag
+paths:
+  /books:
+    get:
+      operationId: getBooksWithReference
+      responses:
+        '200':
+          description: Fetch list of books
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/additionalPropSchema"
+  /v2/books:
+    get:
+      operationId: getBooksWithReference2
+      responses:
+        '200':
+          description: Fetch list of books
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/nonAdditionalPropSchema"
+
+components:
+  schemas:
+    additionalPropSchema:
+      type: object
+      required:
+        - status
+        - result
+      additionalProperties: false
+      properties:
+        status:
+          type: string
+          example: "foo"
+        result:
+          type: string
+          example: "bar"
+    nonAdditionalPropSchema:
+      type: object
+      required:
+        - status1
+        - result1
+      properties:
+        status1:
+          type: string
+          example: "foo"
+        result1:
+          type: string
+          example: "bar"
+openapi: 3.0.0

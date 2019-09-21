@@ -17,12 +17,13 @@ class ObjectSchema extends AbstractProperty
 
     /**
      */
-    public function __construct(array $properties, array $required, string $name = '', bool $nullable)
+    public function __construct(array $properties, array $required, string $name = '', bool $nullable, $additionalProperties)
     {
         $this->properties = $properties;
         $this->required = $required;
         $this->name = $name;
         $this->nullable = $nullable;
+        $this->additionalProperties = $additionalProperties;
     }
 
     public function toArray(): array
@@ -38,6 +39,7 @@ class ObjectSchema extends AbstractProperty
             'type' => $types,
             'properties' => $properties,
             'required' => $this->required,
+            'additionalProperties' => $this->additionalProperties,
         ];
     }
 

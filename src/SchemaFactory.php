@@ -89,7 +89,7 @@ class SchemaFactory
                     }
                 }
 
-                return new ObjectSchema($properties, $data['required'] ?? [], $name ?? '', $data['nullable'] ?? false);
+                return new ObjectSchema($properties, $data['required'] ?? [], $name ?? '', $data['nullable'] ?? false, $data['additionalProperties'] ?? null);
             }
             if ($data['type'] === 'array') {
                 return new ArrayProperty($name ?? '', $this->fromArray($data['items']), $data['nullable'] ?? false);
